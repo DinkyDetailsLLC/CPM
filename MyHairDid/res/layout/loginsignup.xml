@@ -4,46 +4,67 @@
     android:layout_height="fill_parent"
     android:orientation="vertical"
     android:padding="10dip" >
- 
-    <TextView
-        android:id="@+id/txtusername"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/Username" />
- 
-    <EditText
-        android:id="@+id/username"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/txtusername"
-        android:inputType="text" />
- 
-    <TextView
-        android:id="@+id/txtpassword"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/username"
-        android:text="@string/Password" />
- 
-    <EditText
-        android:id="@+id/password"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/txtpassword"
-        android:inputType="textPassword" />
- 
-    <Button
-        android:id="@+id/login"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/password"
-        android:text="@string/LoginBtn" />
- 
+
     <Button
         android:id="@+id/signup"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/login"
-        android:text="@string/SignupBtn" />
+        android:layout_alignLeft="@+id/login"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="128dp"
+        android:text="SignupBtn" />
+
+    <Button
+        android:id="@+id/login"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/signup"
+        android:layout_alignLeft="@+id/password"
+        android:text="LoginBtn" />
+
+    <EditText
+        android:id="@+id/password"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/login"
+        android:layout_alignParentLeft="true"
+        android:layout_marginBottom="76dp"
+        android:ems="10"
+        android:hint="Password"
+        android:gravity="center"
+        android:inputType="textPassword" >
+
+        <requestFocus />
+    </EditText>
+
+    <EditText
+        android:id="@+id/username"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/password"
+        android:layout_alignLeft="@+id/password"
+        android:ems="10"
+        android:hint="UserName"
+        android:gravity="center"
+        android:inputType="text" />
+
+    <CheckBox
+        android:id="@+id/checkBox1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/login"
+        android:layout_alignLeft="@+id/password"
+        android:layout_marginBottom="23dp"
+        android:text="Remember me" />
+
+    <TextView
+        android:id="@+id/textView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/checkBox1"
+        android:layout_alignBottom="@+id/checkBox1"
+        android:layout_alignRight="@+id/password"
+        android:text="Forget Password?"
+        android:textAppearance="?android:attr/textAppearanceMedium" />
  
 </RelativeLayout>
