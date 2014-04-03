@@ -34,7 +34,7 @@ public class Welcome extends Activity {
         // Set the currentUser String into TextView
         txtuser.setText("You are logged in as " + struser);
         
-        ParseObject privateNote = new ParseObject("Note2");
+        ParseObject privateNote = new ParseObject("Note");
         privateNote.put("New Note2", "This note is Different! to User only");
         privateNote.setACL(new ParseACL(ParseUser.getCurrentUser()));
         privateNote.saveInBackground();

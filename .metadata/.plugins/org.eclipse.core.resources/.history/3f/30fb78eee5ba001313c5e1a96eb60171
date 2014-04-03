@@ -1,9 +1,7 @@
 package com.dinky.myhairdid;
 
-import com.parse.ParseACL;
-import com.parse.ParseObject;
 import com.parse.ParseUser;
-
+ 
 import android.app.Activity;
 import android.os.Bundle;
 import android.view.View;
@@ -33,11 +31,6 @@ public class Welcome extends Activity {
  
         // Set the currentUser String into TextView
         txtuser.setText("You are logged in as " + struser);
-        
-        ParseObject privateNote = new ParseObject("Note2");
-        privateNote.put("New Note2", "This note is Different! to User only");
-        privateNote.setACL(new ParseACL(ParseUser.getCurrentUser()));
-        privateNote.saveInBackground();
  
         // Locate Button in welcome.xml
         logout = (Button) findViewById(R.id.logout);
