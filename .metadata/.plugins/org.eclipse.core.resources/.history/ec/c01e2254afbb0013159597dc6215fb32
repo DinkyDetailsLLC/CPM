@@ -37,7 +37,7 @@ public class Launcher extends Activity implements OnItemClickListener {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_event);
 //Setting up Parse Credentials and Analytics
-		Parse.initialize(this, "whuA5NzWKZoIM1KEDnqnTEpgL2LEvMEZuCFKMYPx","M7P3slfXFJmHGLm4eX0LKKdi1cOu0GWvxp0hCi2d");
+		Parse.initialize(this, "whuA5NzWKZoIM1KEDnqnTEpgL2LEvMEZuCFKMYPx", "M7P3slfXFJmHGLm4eX0LKKdi1cOu0GWvxp0hCi2d");
 		ParseAnalytics.trackAppOpened(getIntent());
 		ParseObject.registerSubclass(Events.class);
 //Checking User

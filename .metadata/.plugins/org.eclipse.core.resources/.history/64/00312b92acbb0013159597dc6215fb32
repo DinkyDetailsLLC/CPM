@@ -37,7 +37,7 @@ public class Launcher extends Activity implements OnItemClickListener {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_event);
 //Setting up Parse Credentials and Analytics
-		Parse.initialize(this, "whuA5NzWKZoIM1KEDnqnTEpgL2LEvMEZuCFKMYPx","M7P3slfXFJmHGLm4eX0LKKdi1cOu0GWvxp0hCi2d");
+		Parse.initialize(this, "whuA5NzWKZoIM1KEDnqnTEpgL2LEvMEZuCFKMYPx", "M7P3slfXFJmHGLm4eX0LKKdi1cOu0GWvxp0hCi2d");
 		ParseAnalytics.trackAppOpened(getIntent());
 		ParseObject.registerSubclass(Events.class);
 //Checking User
@@ -75,15 +75,15 @@ public class Launcher extends Activity implements OnItemClickListener {
 		});
 	}
 	//Create the Event
-	public void createTask(View v) {
+	public void createEvent(View v) {
 		if (EventInput.getText().length() > 0){
-			Events anEvent = new Events();
-			anEvent.setACL(new ParseACL(ParseUser.getCurrentUser()));
-			anEvent.setUser(ParseUser.getCurrentUser());
-			anEvent.setDescription(EventInput.getText().toString());
-			anEvent.setCompleted(false);
-			anEvent.saveEventually();
-			Adapter.insert(anEvent, 0);
+			Events e = new Events();
+			e.setACL(new ParseACL(ParseUser.getCurrentUser()));
+			e.setUser(ParseUser.getCurrentUser());
+			e.setDescription(EventInput.getText().toString());
+			e.setCompleted(false);
+			e.saveEventually();
+			Adapter.insert(e, 0);
 			EventInput.setText("");
 		}
 	}
