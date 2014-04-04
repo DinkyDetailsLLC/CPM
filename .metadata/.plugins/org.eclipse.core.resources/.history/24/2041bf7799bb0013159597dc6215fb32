@@ -1,0 +1,44 @@
+package com.dinky.myhairdid;
+
+import java.util.List;
+
+import android.content.Context;
+import android.graphics.Paint;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
+import android.widget.TextView;
+
+public class ColorAdapter extends ArrayAdapter<Color> {
+	private Context mContext;
+	private List<Color> mColors;
+
+	public ColorAdapter(Context context, List<Color> objects) {
+		super(context, R.layout.Color_row_item, objects);
+		this.mContext = context;
+		this.mColors = objects;
+	}
+
+	public View getView(int position, View convertView, ViewGroup parent){
+		if(convertView == null){
+			LayoutInflater mLayoutInflater = LayoutInflater.from(mContext);
+			convertView = mLayoutInflater.inflate(R.layout.Color_row_item, null);
+		}
+
+		Color Color = mColors.get(position);
+
+		TextView descriptionView = (TextView) convertView.findViewById(R.id.Color_description);
+
+		descriptionView.setText(Color.getDescription());
+
+		if(Color.isCompleted()){
+			descriptionView.setPaintFlags(descriptionView.getPaintFlags() | Paint.STRIKE_THRU_TEXT_FLAG);
+		}else{
+			descriptionView.setPaintFlags(descriptionView.getPaintFlags() & (~Paint.STRIKE_THRU_TEXT_FLAG));
+		}
+
+		return convertView;
+	}
+
+}

@@ -1,0 +1,44 @@
+package com.dinky.myhairdid_v12;
+
+import java.util.List;
+
+import android.content.Context;
+import android.graphics.Paint;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
+import android.widget.TextView;
+
+public class EventAdapter extends ArrayAdapter<Event> {
+	private Context mContext;
+	private List<Event> mEvents;
+
+	public EventAdapter(Context context, List<Event> objects) {
+		super(context, R.layout.Event_row_item, objects);
+		this.mContext = context;
+		this.mEvents = objects;
+	}
+
+	public View getView(int position, View convertView, ViewGroup parent){
+		if(convertView == null){
+			LayoutInflater mLayoutInflater = LayoutInflater.from(mContext);
+			convertView = mLayoutInflater.inflate(R.layout.Event_row_item, null);
+		}
+
+		Event Event = mEvents.get(position);
+
+		TextView descriptionView = (TextView) convertView.findViewById(R.id.Event_description);
+
+		descriptionView.setText(Event.getDescription());
+
+		if(Event.isCompleted()){
+			descriptionView.setPaintFlags(descriptionView.getPaintFlags() | Paint.STRIKE_THRU_TEXT_FLAG);
+		}else{
+			descriptionView.setPaintFlags(descriptionView.getPaintFlags() & (~Paint.STRIKE_THRU_TEXT_FLAG));
+		}
+
+		return convertView;
+	}
+
+}

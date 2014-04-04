@@ -1,0 +1,125 @@
+package com.dinky.myhairdid_v12;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import android.app.Activity;
+import android.content.Intent;
+import android.graphics.Paint;
+import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
+import android.view.View;
+import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemClickListener;
+import android.widget.EditText;
+import android.widget.ListView;
+import android.widget.TextView;
+
+import com.parse.FindCallback;
+import com.parse.Parse;
+import com.parse.ParseACL;
+import com.parse.ParseAnalytics;
+import com.parse.ParseException;
+import com.parse.ParseObject;
+import com.parse.ParseQuery;
+import com.parse.ParseUser;
+import com.parse.ParseQuery.CachePolicy;
+
+public class Launcher extends Activity implements OnItemClickListener {
+//Variables
+	private EditText EventInput;
+	private ListView ListView;
+	private EventsAdapter Adapter;
+
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		setContentView(R.layout.activity_event);
+//Setting up Parse Credentials and Analytics
+		Parse.initialize(this, "whuA5NzWKZoIM1KEDnqnTEpgL2LEvMEZuCFKMYPx", "M7P3slfXFJmHGLm4eX0LKKdi1cOu0GWvxp0hCi2d");
+		ParseAnalytics.trackAppOpened(getIntent());
+		ParseObject.registerSubclass(Events.class);
+//Checking User
+		ParseUser currentUser = ParseUser.getCurrentUser();
+		if(currentUser == null){
+			Intent intent = new Intent(this, LoginActivity.class);
+			startActivity(intent);
+			finish();
+		}
+//What to display if the user is logged in already
+		Adapter = new EventsAdapter(this, new ArrayList<Events>());
+
+		EventInput = (EditText) findViewById(R.id.event_input);
+		ListView = (ListView) findViewById(R.id.event_list);
+		ListView.setAdapter(Adapter);
+		ListView.setOnItemClickListener(this);
+
+		updateData();
+	}
+//Grab the Data from Parse
+	public void updateData(){
+		ParseQuery<Events> query = ParseQuery.getQuery(Events.class);
+		query.whereEqualTo("user", ParseUser.getCurrentUser());
+		query.setCachePolicy(CachePolicy.CACHE_THEN_NETWORK);
+		query.findInBackground(new FindCallback<Events>() {
+			@Override
+			public void done(List<Events> tasks, ParseException error) {
+				if(tasks != null){
+					Adapter.clear();
+					for (int i = 0; i < tasks.size(); i++) {
+						Adapter.add(tasks.get(i));
+					}
+				}
+			}
+		});
+	}
+	//Create the Event
+	public void createEvent(View v) {
+		if (EventInput.getText().length() > 0){
+			Events e = new Events();
+			e.setACL(new ParseACL(ParseUser.getCurrentUser()));
+			e.setUser(ParseUser.getCurrentUser());
+			e.setDescription(EventInput.getText().toString());
+			e.setCompleted(false);
+			e.saveEventually();
+			Adapter.insert(e, 0);
+			EventInput.setText("");
+		}
+	}
+//Menu
+	@Override
+	public boolean onCreateOptionsMenu(Menu menu) {
+		getMenuInflater().inflate(R.menu.event, menu);
+		return true;
+	}
+//What to do when the user hits logout.. Log out and then load the login activity
+	public boolean onOptionsItemSelected(MenuItem item) {
+		switch (item.getItemId()) {
+		case R.id.action_logout:
+			ParseUser.logOut();
+			Intent intent = new Intent(this, LoginActivity.class);
+			startActivity(intent);
+			finish();
+			return true;
+		}
+		return false;
+	}
+//Function for the 
+	@Override
+	public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+		Events task = Adapter.getItem(position);
+		TextView taskDescription = (TextView) view.findViewById(R.id.event_description);
+
+		task.setCompleted(!task.isCompleted());
+
+		if(task.isCompleted()){
+			taskDescription.setPaintFlags(taskDescription.getPaintFlags() | Paint.STRIKE_THRU_TEXT_FLAG);
+		}else{
+			taskDescription.setPaintFlags(taskDescription.getPaintFlags() & (~Paint.STRIKE_THRU_TEXT_FLAG));
+		}
+
+		task.saveEventually();
+	}
+
+}

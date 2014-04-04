@@ -75,7 +75,7 @@ public class Login extends Activity {
 										if (user != null) {
 											// If user exist and authenticated,
 											// send
-											// user to Welcome.class
+											// user to ClientList.class
 											progressdialog.dismiss();
 											Intent intent = new Intent(
 													Login.this,

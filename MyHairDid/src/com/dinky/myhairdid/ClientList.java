@@ -7,8 +7,12 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.Window;
 import android.widget.Button;
+import android.widget.EditText;
+import android.widget.ListView;
 import android.widget.TextView;
 
+import com.parse.ParseClassName;
+import com.parse.ParseObject;
 import com.parse.ParseUser;
 
 public class ClientList extends Activity {
@@ -28,7 +32,7 @@ public class ClientList extends Activity {
 		// Convert currentUser into String
 		String struser = currentUser.getUsername().toString();
 
-		// Locate TextView in welcome.xml
+		// Locate TextView in xml
 		TextView txtuser = (TextView) findViewById(R.id.txtuser);
 
 		// Set the currentUser String into TextView
@@ -47,7 +51,10 @@ public class ClientList extends Activity {
 			      Intent intent = new Intent(ClientList.this, Login.class);
 			      startActivity(intent);
 			      //finish();
+			      
+			      
 			}
 		});
+
 	}
 }
