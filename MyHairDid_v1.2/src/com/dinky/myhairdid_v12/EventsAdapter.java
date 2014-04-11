@@ -28,13 +28,13 @@ public class EventsAdapter extends ArrayAdapter<Events> {
 			convertView = mLayoutInflater.inflate(R.layout.event_row_item, null);
 		}
 
-		Events task = aEvents.get(position);
+		Events event = aEvents.get(position);
 
 		TextView descriptionView = (TextView) convertView.findViewById(R.id.event_description);
 
-		descriptionView.setText(task.getDescription());
+		descriptionView.setText(event.getDescription());
 
-		if(task.isCompleted()){
+		if(event.isCompleted()){
 			descriptionView.setPaintFlags(descriptionView.getPaintFlags() | Paint.STRIKE_THRU_TEXT_FLAG);
 		}else{
 			descriptionView.setPaintFlags(descriptionView.getPaintFlags() & (~Paint.STRIKE_THRU_TEXT_FLAG));
