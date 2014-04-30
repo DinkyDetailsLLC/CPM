@@ -10,16 +10,13 @@
 		15A0B60319108D24005D3A77 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 15A0B60219108D24005D3A77 /* Foundation.framework */; };
 		15A0B60519108D24005D3A77 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 15A0B60419108D24005D3A77 /* CoreGraphics.framework */; };
 		15A0B60719108D24005D3A77 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 15A0B60619108D24005D3A77 /* UIKit.framework */; };
-		15A0B60919108D24005D3A77 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 15A0B60819108D24005D3A77 /* CoreData.framework */; };
 		15A0B60F19108D24005D3A77 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 15A0B60D19108D24005D3A77 /* InfoPlist.strings */; };
 		15A0B61119108D24005D3A77 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 15A0B61019108D24005D3A77 /* main.m */; };
 		15A0B61519108D24005D3A77 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 15A0B61419108D24005D3A77 /* AppDelegate.m */; };
 		15A0B61819108D24005D3A77 /* myHairDid.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 15A0B61619108D24005D3A77 /* myHairDid.xcdatamodeld */; };
 		15A0B61A19108D24005D3A77 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 15A0B61919108D24005D3A77 /* Images.xcassets */; };
-		15A0B62119108D25005D3A77 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 15A0B62019108D25005D3A77 /* XCTest.framework */; };
 		15A0B62219108D25005D3A77 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 15A0B60219108D24005D3A77 /* Foundation.framework */; };
 		15A0B62319108D25005D3A77 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 15A0B60619108D24005D3A77 /* UIKit.framework */; };
-		15A0B62419108D25005D3A77 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 15A0B60819108D24005D3A77 /* CoreData.framework */; };
 		15A0B62C19108D25005D3A77 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 15A0B62A19108D25005D3A77 /* InfoPlist.strings */; };
 		15A0B62E19108D25005D3A77 /* myHairDidTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 15A0B62D19108D25005D3A77 /* myHairDidTests.m */; };
 		15A0B63D19108E04005D3A77 /* checkbox@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 15A0B63919108E04005D3A77 /* checkbox@2x.png */; };
@@ -39,7 +36,15 @@
 		15A0B66119108F76005D3A77 /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 15A0B66019108F76005D3A77 /* MBProgressHUD.m */; };
 		15A0B66419108F83005D3A77 /* TPKeyboardAvoidingScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 15A0B66319108F83005D3A77 /* TPKeyboardAvoidingScrollView.m */; };
 		15A0B66619109892005D3A77 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 15A0B66519109892005D3A77 /* Parse.framework */; };
-		15A0B6681910997A005D3A77 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 15A0B6671910997A005D3A77 /* SystemConfiguration.framework */; };
+		15A0B66E19109C19005D3A77 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 15A0B66D19109C19005D3A77 /* CFNetwork.framework */; };
+		15A0B67019109C3B005D3A77 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 15A0B66F19109C3B005D3A77 /* SystemConfiguration.framework */; };
+		15A0B67219109C4D005D3A77 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 15A0B67119109C4D005D3A77 /* Security.framework */; };
+		15A0B67419109C53005D3A77 /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 15A0B67319109C53005D3A77 /* Social.framework */; };
+		15A0B67619109C78005D3A77 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 15A0B67519109C78005D3A77 /* MobileCoreServices.framework */; };
+		15A0B67819109C8A005D3A77 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 15A0B67719109C8A005D3A77 /* QuartzCore.framework */; };
+		15A0B67B19109CBE005D3A77 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 15A0B67A19109CBE005D3A77 /* libsqlite3.dylib */; };
+		15A0B67D19109CCB005D3A77 /* libz.1.1.3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 15A0B67C19109CCB005D3A77 /* libz.1.1.3.dylib */; };
+		15A0B67F19109D42005D3A77 /* Accounts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 15A0B67E19109D42005D3A77 /* Accounts.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,7 +62,6 @@
 		15A0B60219108D24005D3A77 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		15A0B60419108D24005D3A77 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		15A0B60619108D24005D3A77 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
-		15A0B60819108D24005D3A77 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		15A0B60C19108D24005D3A77 /* myHairDid-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "myHairDid-Info.plist"; sourceTree = "<group>"; };
 		15A0B60E19108D24005D3A77 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		15A0B61019108D24005D3A77 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -67,7 +71,6 @@
 		15A0B61719108D24005D3A77 /* myHairDid.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = myHairDid.xcdatamodel; sourceTree = "<group>"; };
 		15A0B61919108D24005D3A77 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		15A0B61F19108D25005D3A77 /* myHairDidTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = myHairDidTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		15A0B62019108D25005D3A77 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		15A0B62919108D25005D3A77 /* myHairDidTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "myHairDidTests-Info.plist"; sourceTree = "<group>"; };
 		15A0B62B19108D25005D3A77 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		15A0B62D19108D25005D3A77 /* myHairDidTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = myHairDidTests.m; sourceTree = "<group>"; };
@@ -95,7 +98,15 @@
 		15A0B66219108F83005D3A77 /* TPKeyboardAvoidingScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPKeyboardAvoidingScrollView.h; sourceTree = "<group>"; };
 		15A0B66319108F83005D3A77 /* TPKeyboardAvoidingScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPKeyboardAvoidingScrollView.m; sourceTree = "<group>"; };
 		15A0B66519109892005D3A77 /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
-		15A0B6671910997A005D3A77 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = SystemConfiguration.framework; sourceTree = "<group>"; };
+		15A0B66D19109C19005D3A77 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
+		15A0B66F19109C3B005D3A77 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		15A0B67119109C4D005D3A77 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		15A0B67319109C53005D3A77 /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
+		15A0B67519109C78005D3A77 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
+		15A0B67719109C8A005D3A77 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		15A0B67A19109CBE005D3A77 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
+		15A0B67C19109CCB005D3A77 /* libz.1.1.3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.1.1.3.dylib; path = usr/lib/libz.1.1.3.dylib; sourceTree = SDKROOT; };
+		15A0B67E19109D42005D3A77 /* Accounts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accounts.framework; path = System/Library/Frameworks/Accounts.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,11 +114,18 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				15A0B67F19109D42005D3A77 /* Accounts.framework in Frameworks */,
+				15A0B67D19109CCB005D3A77 /* libz.1.1.3.dylib in Frameworks */,
+				15A0B67B19109CBE005D3A77 /* libsqlite3.dylib in Frameworks */,
+				15A0B67819109C8A005D3A77 /* QuartzCore.framework in Frameworks */,
+				15A0B67619109C78005D3A77 /* MobileCoreServices.framework in Frameworks */,
+				15A0B67419109C53005D3A77 /* Social.framework in Frameworks */,
+				15A0B67219109C4D005D3A77 /* Security.framework in Frameworks */,
+				15A0B67019109C3B005D3A77 /* SystemConfiguration.framework in Frameworks */,
+				15A0B66E19109C19005D3A77 /* CFNetwork.framework in Frameworks */,
 				15A0B60519108D24005D3A77 /* CoreGraphics.framework in Frameworks */,
-				15A0B60919108D24005D3A77 /* CoreData.framework in Frameworks */,
 				15A0B60719108D24005D3A77 /* UIKit.framework in Frameworks */,
 				15A0B60319108D24005D3A77 /* Foundation.framework in Frameworks */,
-				15A0B6681910997A005D3A77 /* SystemConfiguration.framework in Frameworks */,
 				15A0B66619109892005D3A77 /* Parse.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -116,8 +134,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				15A0B62119108D25005D3A77 /* XCTest.framework in Frameworks */,
-				15A0B62419108D25005D3A77 /* CoreData.framework in Frameworks */,
 				15A0B62319108D25005D3A77 /* UIKit.framework in Frameworks */,
 				15A0B62219108D25005D3A77 /* Foundation.framework in Frameworks */,
 			);
@@ -148,13 +164,19 @@
 		15A0B60119108D24005D3A77 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				15A0B6671910997A005D3A77 /* SystemConfiguration.framework */,
+				15A0B67E19109D42005D3A77 /* Accounts.framework */,
+				15A0B67C19109CCB005D3A77 /* libz.1.1.3.dylib */,
+				15A0B67A19109CBE005D3A77 /* libsqlite3.dylib */,
+				15A0B67719109C8A005D3A77 /* QuartzCore.framework */,
+				15A0B67519109C78005D3A77 /* MobileCoreServices.framework */,
+				15A0B67319109C53005D3A77 /* Social.framework */,
+				15A0B67119109C4D005D3A77 /* Security.framework */,
+				15A0B66F19109C3B005D3A77 /* SystemConfiguration.framework */,
+				15A0B66D19109C19005D3A77 /* CFNetwork.framework */,
 				15A0B66519109892005D3A77 /* Parse.framework */,
 				15A0B60219108D24005D3A77 /* Foundation.framework */,
 				15A0B60419108D24005D3A77 /* CoreGraphics.framework */,
 				15A0B60619108D24005D3A77 /* UIKit.framework */,
-				15A0B60819108D24005D3A77 /* CoreData.framework */,
-				15A0B62019108D25005D3A77 /* XCTest.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -456,6 +478,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "myHairDid/myHairDid-Prefix.pch";
@@ -473,6 +496,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "myHairDid/myHairDid-Prefix.pch";
