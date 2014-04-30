@@ -39,6 +39,7 @@
 		15A0B66119108F76005D3A77 /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 15A0B66019108F76005D3A77 /* MBProgressHUD.m */; };
 		15A0B66419108F83005D3A77 /* TPKeyboardAvoidingScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 15A0B66319108F83005D3A77 /* TPKeyboardAvoidingScrollView.m */; };
 		15A0B66619109892005D3A77 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 15A0B66519109892005D3A77 /* Parse.framework */; };
+		15A0B6681910997A005D3A77 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 15A0B6671910997A005D3A77 /* SystemConfiguration.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -94,6 +95,7 @@
 		15A0B66219108F83005D3A77 /* TPKeyboardAvoidingScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPKeyboardAvoidingScrollView.h; sourceTree = "<group>"; };
 		15A0B66319108F83005D3A77 /* TPKeyboardAvoidingScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPKeyboardAvoidingScrollView.m; sourceTree = "<group>"; };
 		15A0B66519109892005D3A77 /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
+		15A0B6671910997A005D3A77 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = SystemConfiguration.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,6 +107,7 @@
 				15A0B60919108D24005D3A77 /* CoreData.framework in Frameworks */,
 				15A0B60719108D24005D3A77 /* UIKit.framework in Frameworks */,
 				15A0B60319108D24005D3A77 /* Foundation.framework in Frameworks */,
+				15A0B6681910997A005D3A77 /* SystemConfiguration.framework in Frameworks */,
 				15A0B66619109892005D3A77 /* Parse.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -145,6 +148,7 @@
 		15A0B60119108D24005D3A77 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				15A0B6671910997A005D3A77 /* SystemConfiguration.framework */,
 				15A0B66519109892005D3A77 /* Parse.framework */,
 				15A0B60219108D24005D3A77 /* Foundation.framework */,
 				15A0B60419108D24005D3A77 /* CoreGraphics.framework */,
