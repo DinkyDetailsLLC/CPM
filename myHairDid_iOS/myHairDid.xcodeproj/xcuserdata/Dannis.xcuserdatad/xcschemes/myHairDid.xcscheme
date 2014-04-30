@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "15C9398818FE0C8A00EE378F"
+               BlueprintIdentifier = "15A0B5FE19108D24005D3A77"
                BuildableName = "myHairDid.app"
                BlueprintName = "myHairDid"
                ReferencedContainer = "container:myHairDid.xcodeproj">
@@ -32,7 +32,7 @@
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "15C939B118FE0C8B00EE378F"
+               BlueprintIdentifier = "15A0B61E19108D25005D3A77"
                BuildableName = "myHairDidTests.xctest"
                BlueprintName = "myHairDidTests"
                ReferencedContainer = "container:myHairDid.xcodeproj">
@@ -42,7 +42,7 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "15C9398818FE0C8A00EE378F"
+            BlueprintIdentifier = "15A0B5FE19108D24005D3A77"
             BuildableName = "myHairDid.app"
             BlueprintName = "myHairDid"
             ReferencedContainer = "container:myHairDid.xcodeproj">
@@ -61,7 +61,7 @@
       <BuildableProductRunnable>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "15C9398818FE0C8A00EE378F"
+            BlueprintIdentifier = "15A0B5FE19108D24005D3A77"
             BuildableName = "myHairDid.app"
             BlueprintName = "myHairDid"
             ReferencedContainer = "container:myHairDid.xcodeproj">
@@ -79,7 +79,7 @@
       <BuildableProductRunnable>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "15C9398818FE0C8A00EE378F"
+            BlueprintIdentifier = "15A0B5FE19108D24005D3A77"
             BuildableName = "myHairDid.app"
             BlueprintName = "myHairDid"
             ReferencedContainer = "container:myHairDid.xcodeproj">

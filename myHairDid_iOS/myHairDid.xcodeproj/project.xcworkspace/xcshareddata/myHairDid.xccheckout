@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>8B4E7A2D-6432-46E3-9BC9-DB05DCB9DA79</string>
+	<key>IDESourceControlProjectName</key>
+	<string>myHairDid</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>5428EA71-99B0-4A9E-BDDE-F94F7D8FCA93</key>
+		<string>https://github.com/DinkyDetailsLLC/CPM.git</string>
+		<key>F0B2E9AF-C395-4B27-80AC-2654F54CF899</key>
+		<string>https://github.com/DinkyDetailsLLC/MDVBS--Full-Sail-Online.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>myHairDid_iOS/myHairDid.xcodeproj/project.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>5428EA71-99B0-4A9E-BDDE-F94F7D8FCA93</key>
+		<string>../../..</string>
+		<key>F0B2E9AF-C395-4B27-80AC-2654F54CF899</key>
+		<string>../../../../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/DinkyDetailsLLC/CPM.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>110</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>5428EA71-99B0-4A9E-BDDE-F94F7D8FCA93</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>5428EA71-99B0-4A9E-BDDE-F94F7D8FCA93</string>
+			<key>IDESourceControlWCCName</key>
+			<string>CPM</string>
+		</dict>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>F0B2E9AF-C395-4B27-80AC-2654F54CF899</string>
+			<key>IDESourceControlWCCName</key>
+			<string>MDVBS- Full Sail Online</string>
+		</dict>
+	</array>
+</dict>
+</plist>
