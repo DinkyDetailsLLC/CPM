@@ -8,6 +8,17 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ViewController : UIViewController
+@interface ViewController : UIViewController<UITextFieldDelegate>
+@property (strong, nonatomic) IBOutlet UITextField *nameTxtFld;       // Name Textfield
+@property (strong, nonatomic) IBOutlet UITextField *passwordTxtFLd;    // Password Textfield
+- (IBAction)rememberMeCheckButton:(id)sender;
+
+- (IBAction)signUpBTn:(id)sender;
+- (IBAction)rememberMeUncheckButton:(id)sender;
+
+- (IBAction)loginBtn:(id)sender;
+@property (strong, nonatomic) IBOutlet UIButton *checkButton;
+@property (strong, nonatomic) IBOutlet UIButton *uncheckButton;
+
 
 @end

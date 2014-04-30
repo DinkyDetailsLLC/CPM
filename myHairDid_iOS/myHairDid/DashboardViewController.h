@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
-@interface DashboardViewController : UIViewController
+@interface DashboardViewController : UIViewController<UITableViewDataSource,UITableViewDelegate,UIAlertViewDelegate>
+@property (strong, nonatomic) IBOutlet UITableView *tableForName;
 
 @end
+
