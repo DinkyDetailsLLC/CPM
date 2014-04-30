@@ -22,7 +22,6 @@
 		15A0B62419108D25005D3A77 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 15A0B60819108D24005D3A77 /* CoreData.framework */; };
 		15A0B62C19108D25005D3A77 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 15A0B62A19108D25005D3A77 /* InfoPlist.strings */; };
 		15A0B62E19108D25005D3A77 /* myHairDidTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 15A0B62D19108D25005D3A77 /* myHairDidTests.m */; };
-		15A0B63819108DCA005D3A77 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 15A0B63719108DCA005D3A77 /* Parse.framework */; };
 		15A0B63D19108E04005D3A77 /* checkbox@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 15A0B63919108E04005D3A77 /* checkbox@2x.png */; };
 		15A0B63E19108E04005D3A77 /* uncheckbox@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 15A0B63A19108E04005D3A77 /* uncheckbox@2x.png */; };
 		15A0B63F19108E04005D3A77 /* background@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 15A0B63B19108E04005D3A77 /* background@2x.png */; };
@@ -39,6 +38,7 @@
 		15A0B65E19108F6F005D3A77 /* MoreInfoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 15A0B65C19108F6F005D3A77 /* MoreInfoViewController.xib */; };
 		15A0B66119108F76005D3A77 /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 15A0B66019108F76005D3A77 /* MBProgressHUD.m */; };
 		15A0B66419108F83005D3A77 /* TPKeyboardAvoidingScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 15A0B66319108F83005D3A77 /* TPKeyboardAvoidingScrollView.m */; };
+		15A0B66619109892005D3A77 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 15A0B66519109892005D3A77 /* Parse.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -70,7 +70,6 @@
 		15A0B62919108D25005D3A77 /* myHairDidTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "myHairDidTests-Info.plist"; sourceTree = "<group>"; };
 		15A0B62B19108D25005D3A77 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		15A0B62D19108D25005D3A77 /* myHairDidTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = myHairDidTests.m; sourceTree = "<group>"; };
-		15A0B63719108DCA005D3A77 /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
 		15A0B63919108E04005D3A77 /* checkbox@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "checkbox@2x.png"; sourceTree = "<group>"; };
 		15A0B63A19108E04005D3A77 /* uncheckbox@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "uncheckbox@2x.png"; sourceTree = "<group>"; };
 		15A0B63B19108E04005D3A77 /* background@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "background@2x.png"; sourceTree = "<group>"; };
@@ -94,6 +93,7 @@
 		15A0B66019108F76005D3A77 /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
 		15A0B66219108F83005D3A77 /* TPKeyboardAvoidingScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPKeyboardAvoidingScrollView.h; sourceTree = "<group>"; };
 		15A0B66319108F83005D3A77 /* TPKeyboardAvoidingScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPKeyboardAvoidingScrollView.m; sourceTree = "<group>"; };
+		15A0B66519109892005D3A77 /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,7 +105,7 @@
 				15A0B60919108D24005D3A77 /* CoreData.framework in Frameworks */,
 				15A0B60719108D24005D3A77 /* UIKit.framework in Frameworks */,
 				15A0B60319108D24005D3A77 /* Foundation.framework in Frameworks */,
-				15A0B63819108DCA005D3A77 /* Parse.framework in Frameworks */,
+				15A0B66619109892005D3A77 /* Parse.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -145,7 +145,7 @@
 		15A0B60119108D24005D3A77 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				15A0B63719108DCA005D3A77 /* Parse.framework */,
+				15A0B66519109892005D3A77 /* Parse.framework */,
 				15A0B60219108D24005D3A77 /* Foundation.framework */,
 				15A0B60419108D24005D3A77 /* CoreGraphics.framework */,
 				15A0B60619108D24005D3A77 /* UIKit.framework */,
@@ -158,19 +158,12 @@
 		15A0B60A19108D24005D3A77 /* myHairDid */ = {
 			isa = PBXGroup;
 			children = (
+				15A0B61319108D24005D3A77 /* AppDelegate.h */,
+				15A0B61419108D24005D3A77 /* AppDelegate.m */,
 				15A0B66219108F83005D3A77 /* TPKeyboardAvoidingScrollView.h */,
 				15A0B66319108F83005D3A77 /* TPKeyboardAvoidingScrollView.m */,
 				15A0B65F19108F76005D3A77 /* MBProgressHUD.h */,
 				15A0B66019108F76005D3A77 /* MBProgressHUD.m */,
-				15A0B63919108E04005D3A77 /* checkbox@2x.png */,
-				15A0B63A19108E04005D3A77 /* uncheckbox@2x.png */,
-				15A0B63B19108E04005D3A77 /* background@2x.png */,
-				15A0B63C19108E04005D3A77 /* background.png */,
-				15A0B61319108D24005D3A77 /* AppDelegate.h */,
-				15A0B61419108D24005D3A77 /* AppDelegate.m */,
-				15A0B61919108D24005D3A77 /* Images.xcassets */,
-				15A0B61619108D24005D3A77 /* myHairDid.xcdatamodeld */,
-				15A0B60B19108D24005D3A77 /* Supporting Files */,
 				15A0B64619108F15005D3A77 /* ViewController.h */,
 				15A0B64719108F15005D3A77 /* ViewController.m */,
 				15A0B64819108F15005D3A77 /* ViewController.xib */,
@@ -186,6 +179,13 @@
 				15A0B65A19108F6F005D3A77 /* MoreInfoViewController.h */,
 				15A0B65B19108F6F005D3A77 /* MoreInfoViewController.m */,
 				15A0B65C19108F6F005D3A77 /* MoreInfoViewController.xib */,
+				15A0B63919108E04005D3A77 /* checkbox@2x.png */,
+				15A0B63A19108E04005D3A77 /* uncheckbox@2x.png */,
+				15A0B63B19108E04005D3A77 /* background@2x.png */,
+				15A0B63C19108E04005D3A77 /* background.png */,
+				15A0B61919108D24005D3A77 /* Images.xcassets */,
+				15A0B61619108D24005D3A77 /* myHairDid.xcdatamodeld */,
+				15A0B60B19108D24005D3A77 /* Supporting Files */,
 			);
 			path = myHairDid;
 			sourceTree = "<group>";
