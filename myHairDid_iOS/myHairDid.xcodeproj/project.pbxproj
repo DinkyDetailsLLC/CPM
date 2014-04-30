@@ -45,6 +45,8 @@
 		15A0B67B19109CBE005D3A77 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 15A0B67A19109CBE005D3A77 /* libsqlite3.dylib */; };
 		15A0B67D19109CCB005D3A77 /* libz.1.1.3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 15A0B67C19109CCB005D3A77 /* libz.1.1.3.dylib */; };
 		15A0B67F19109D42005D3A77 /* Accounts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 15A0B67E19109D42005D3A77 /* Accounts.framework */; };
+		15A0B6861910A5B3005D3A77 /* Utilities-1.m in Sources */ = {isa = PBXBuildFile; fileRef = 15A0B6831910A5B3005D3A77 /* Utilities-1.m */; };
+		15A0B6871910A5B3005D3A77 /* Reachability-1.m in Sources */ = {isa = PBXBuildFile; fileRef = 15A0B6851910A5B3005D3A77 /* Reachability-1.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -107,6 +109,10 @@
 		15A0B67A19109CBE005D3A77 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
 		15A0B67C19109CCB005D3A77 /* libz.1.1.3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.1.1.3.dylib; path = usr/lib/libz.1.1.3.dylib; sourceTree = SDKROOT; };
 		15A0B67E19109D42005D3A77 /* Accounts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accounts.framework; path = System/Library/Frameworks/Accounts.framework; sourceTree = SDKROOT; };
+		15A0B6821910A5B3005D3A77 /* Utilities-1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "Utilities-1.h"; path = "../Utilities-1.h"; sourceTree = "<group>"; };
+		15A0B6831910A5B3005D3A77 /* Utilities-1.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "Utilities-1.m"; path = "../Utilities-1.m"; sourceTree = "<group>"; };
+		15A0B6841910A5B3005D3A77 /* Reachability-1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "Reachability-1.h"; path = "../Reachability-1.h"; sourceTree = "<group>"; };
+		15A0B6851910A5B3005D3A77 /* Reachability-1.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "Reachability-1.m"; path = "../Reachability-1.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -184,6 +190,10 @@
 		15A0B60A19108D24005D3A77 /* myHairDid */ = {
 			isa = PBXGroup;
 			children = (
+				15A0B6821910A5B3005D3A77 /* Utilities-1.h */,
+				15A0B6831910A5B3005D3A77 /* Utilities-1.m */,
+				15A0B6841910A5B3005D3A77 /* Reachability-1.h */,
+				15A0B6851910A5B3005D3A77 /* Reachability-1.m */,
 				15A0B61319108D24005D3A77 /* AppDelegate.h */,
 				15A0B61419108D24005D3A77 /* AppDelegate.m */,
 				15A0B66219108F83005D3A77 /* TPKeyboardAvoidingScrollView.h */,
@@ -355,8 +365,10 @@
 				15A0B65319108F49005D3A77 /* DashboardViewController.m in Sources */,
 				15A0B61819108D24005D3A77 /* myHairDid.xcdatamodeld in Sources */,
 				15A0B66119108F76005D3A77 /* MBProgressHUD.m in Sources */,
+				15A0B6871910A5B3005D3A77 /* Reachability-1.m in Sources */,
 				15A0B61519108D24005D3A77 /* AppDelegate.m in Sources */,
 				15A0B64919108F15005D3A77 /* ViewController.m in Sources */,
+				15A0B6861910A5B3005D3A77 /* Utilities-1.m in Sources */,
 				15A0B61119108D24005D3A77 /* main.m in Sources */,
 				15A0B65819108F60005D3A77 /* EditInfoViewController.m in Sources */,
 			);
