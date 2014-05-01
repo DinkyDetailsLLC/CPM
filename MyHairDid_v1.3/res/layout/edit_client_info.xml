@@ -2,6 +2,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#808080"
     android:orientation="vertical" >
 
     <LinearLayout
@@ -9,22 +10,17 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
+        android:layout_marginTop="10dp"
         android:gravity="right"
         android:orientation="vertical" >
 
         <Button
             android:id="@+id/add_client_btnEdit"
-            android:layout_width="100dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Edit" />
-
-        <!-- <EditText -->
-        <!-- android:id="@+id/add_client_et_name" -->
-        <!-- android:layout_width="fill_parent" -->
-        <!-- android:inputType="text" -->
-        <!-- android:padding="04dp" -->
-        <!-- android:background="@drawable/edit_text_design" -->
-        <!-- android:layout_height="wrap_content" /> -->
+            android:background="@drawable/blue_button"
+            android:text="Edit"
+            android:textColor="@android:color/white" />
     </LinearLayout>
 
     <LinearLayout
@@ -134,6 +130,7 @@
             android:background="@drawable/edit_text_design"
             android:editable="false"
             android:inputType="number"
+            android:maxLength="5"
             android:padding="04dp" />
     </LinearLayout>
 
@@ -178,6 +175,7 @@
             android:background="@drawable/edit_text_design"
             android:editable="false"
             android:inputType="phone"
+            android:maxLength="12"
             android:padding="04dp" />
     </LinearLayout>
 
@@ -204,7 +202,7 @@
             android:id="@+id/add_client_bt_upload"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:background="#0000FF"
+            android:background="@drawable/blue_button"
             android:editable="false"
             android:padding="04dp"
             android:text="Upload"

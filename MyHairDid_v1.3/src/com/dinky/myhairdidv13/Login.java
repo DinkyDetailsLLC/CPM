@@ -1,7 +1,9 @@
 package com.dinky.myhairdidv13;
 
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.app.ProgressDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -48,8 +50,7 @@ public class Login extends Activity {
 			public void onClick(View arg0) {
 
 				if (!(API.isInternetOn(Login.this))) {
-					Toast.makeText(Login.this, "Internet not avialble.",
-							Toast.LENGTH_SHORT).show();
+					showAlert("Internet not avialble.");
 				} else {
 					progressdialog.setMessage("Please wait...");
 					progressdialog.show();
@@ -60,12 +61,10 @@ public class Login extends Activity {
 
 					if (usernametxt.equals("")) {
 						progressdialog.dismiss();
-						Toast.makeText(Login.this, "Please enter username.",
-								Toast.LENGTH_SHORT).show();
+						showAlert("Please enter username.");
 					} else if (passwordtxt.equals("")) {
 						progressdialog.dismiss();
-						Toast.makeText(Login.this, "Please enter password.",
-								Toast.LENGTH_SHORT).show();
+						showAlert("Please enter password.");
 					} else {
 						// Send data to Parse.com for verification
 						ParseUser.logInInBackground(usernametxt, passwordtxt,
@@ -109,5 +108,17 @@ public class Login extends Activity {
 			}
 		});
 
+	}
+	void showAlert(String message) {
+		new AlertDialog.Builder(Login.this).setTitle("Error")
+				.setMessage(message)
+				.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
+
+					@Override
+					public void onClick(DialogInterface dialog, int which) {
+						// TODO Auto-generated method stub
+
+					}
+				}).show();
 	}
 }

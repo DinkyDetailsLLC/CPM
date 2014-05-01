@@ -6,6 +6,7 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
+    android:background="#212121"
     tools:context=".LoginActivity" >
 
     <EditText
@@ -18,7 +19,9 @@
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp"
         android:hint="@string/UserName"
-        android:gravity="center"
+        android:gravity="left|center"
+        android:paddingLeft="10dp"
+        android:background="@drawable/inputbox"
         android:inputType="textPersonName" >
 
         <requestFocus />
@@ -30,20 +33,14 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/username"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="20dp"
+        android:paddingLeft="10dp"
+        android:layout_marginTop="10dp"
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp"
-        android:gravity="center"
+        android:gravity="left|center"
         android:hint="@string/Password"
+        android:background="@drawable/inputbox"
         android:inputType="textPassword" />
-
-    <CheckBox
-        android:id="@+id/remember"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_centerVertical="true"
-        android:text="@string/RememberMe" />
 
     <Button
         android:id="@+id/signup"
@@ -51,7 +48,8 @@
         android:layout_height="wrap_content"
         android:layout_alignLeft="@+id/login"
         android:layout_below="@+id/login"
-        android:layout_marginTop="26dp"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/backbuttoncopy"
         android:text="@string/SignUp" />
 
     <Button
@@ -60,7 +58,29 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/remember"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="15dp"
+        android:background="@drawable/backbuttoncopy"
         android:text="@string/login" />
+
+    <CheckBox
+        android:id="@+id/remember"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignRight="@+id/login"
+        android:layout_below="@+id/password"
+        android:textColor="#626262"
+        android:layout_marginTop="10dp"
+        
+        android:text="@string/RememberMe" />
+
+    <TextView
+        android:id="@+id/textView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:text="Hello,Let&apos;s log in or Sign up!"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:textColor="@android:color/white" />
 
 </RelativeLayout>

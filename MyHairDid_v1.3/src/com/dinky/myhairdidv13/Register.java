@@ -1,7 +1,9 @@
 package com.dinky.myhairdidv13;
 
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.app.ProgressDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -37,8 +39,7 @@ public class Register extends Activity {
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
 				if (!(API.isInternetOn(Register.this))) {
-					Toast.makeText(Register.this, "Internet not avialble.",
-							Toast.LENGTH_SHORT).show();
+					showAlert("Internet not avialble.");
 				} else {
 					progressdialog.setMessage("Please wait...");
 					progressdialog.show();
@@ -48,20 +49,14 @@ public class Register extends Activity {
 							|| password.getText().toString().equals("")
 							|| verifyPassword.getText().toString().equals("")) {
 						progressdialog.dismiss();
-						Toast.makeText(getApplicationContext(),
-								"Please complete the sign up form.",
-								Toast.LENGTH_LONG).show();
+						showAlert("Please complete the sign up form.");
 					} else if (!(isValidEmail(email.getText().toString()))) {
 						progressdialog.dismiss();
-						Toast.makeText(getApplicationContext(),
-								"Please enter valid email id.",
-								Toast.LENGTH_LONG).show();
+						showAlert("Please enter valid email id.");
 					} else if (!(password.getText().toString()
 							.equals(verifyPassword.getText().toString()))) {
 						progressdialog.dismiss();
-						Toast.makeText(getApplicationContext(),
-								"Password did not matched", Toast.LENGTH_LONG)
-								.show();
+						showAlert("Password did not matched");
 					} else {
 						// Save new user data into Parse.com Data Storage
 						ParseUser user = new ParseUser();
@@ -114,9 +109,7 @@ public class Register extends Activity {
 					finish();
 				} else {
 					progressdialog.dismiss();
-					Toast.makeText(getApplicationContext(),
-							"No such user exist, please signup",
-							Toast.LENGTH_LONG).show();
+					showAlert("No such user exist, please signup");
 				}
 			}
 		});
@@ -130,4 +123,16 @@ public class Register extends Activity {
 		}
 	}
 
+	void showAlert(String message) {
+		new AlertDialog.Builder(Register.this).setTitle("Error")
+				.setMessage(message)
+				.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
+
+					@Override
+					public void onClick(DialogInterface dialog, int which) {
+						// TODO Auto-generated method stub
+
+					}
+				}).show();
+	}
 }

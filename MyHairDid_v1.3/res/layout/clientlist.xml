@@ -5,20 +5,9 @@
     android:orientation="vertical" >
 
     <TextView
-        android:id="@+id/txtwelcome"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:paddingTop="50dp"
-        android:text="@string/Welcome"
-        android:textSize="25sp"
-        android:visibility="gone" />
-
-    <TextView
         android:id="@+id/txtuser"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/txtwelcome"
         android:layout_centerHorizontal="true"
         android:visibility="gone" />
 
@@ -33,9 +22,20 @@
     <RelativeLayout
         android:id="@+id/top_layout"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="60dp"
         android:layout_alignParentTop="true"
-        android:background="@android:color/white" >
+        android:background="#212121" >
+
+        <TextView
+            android:id="@+id/txtwelcome"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:paddingLeft="80dp"
+            android:paddingTop="30dp"
+            android:text="Here are your Clients!"
+            android:textColor="@android:color/white"
+            android:textSize="25sp" />
 
         <TextView
             android:id="@+id/signOut"
@@ -45,7 +45,8 @@
             android:layout_alignParentTop="true"
             android:text="SignOut"
             android:textAppearance="?android:attr/textAppearanceLarge"
-            android:textColor="@android:color/black" />
+            android:textColor="@android:color/white"
+             />
 
         <TextView
             android:id="@+id/add"
@@ -55,16 +56,23 @@
             android:layout_alignParentTop="true"
             android:text="ADD"
             android:textAppearance="?android:attr/textAppearanceLarge"
-            android:textColor="@android:color/black" />
+            android:textColor="@android:color/white"
+             />
     </RelativeLayout>
 
-    <ListView
-        android:id="@+id/listView_clientList"
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_alignTop="@+id/txtuser"
-        android:layout_below="@id/top_layout" >
-    </ListView>
+        android:layout_height="match_parent"
+        android:layout_below="@+id/top_layout"
+        android:background="@drawable/bg_image" >
+
+        <ListView
+            android:id="@+id/listView_clientList"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:dividerHeight="5dp"
+            android:layout_alignParentLeft="true" >
+        </ListView>
+    </RelativeLayout>
 
 </RelativeLayout>

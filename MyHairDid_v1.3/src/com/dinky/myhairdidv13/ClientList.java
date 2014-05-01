@@ -290,4 +290,18 @@ public class ClientList extends Activity implements View.OnClickListener {
 				.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP));
 		finish();
 	}
+	
+	void showAlert(String message) {
+		new AlertDialog.Builder(ClientList.this).setTitle("Error")
+				.setMessage(message)
+				.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
+
+					@Override
+					public void onClick(DialogInterface dialog, int which) {
+						// TODO Auto-generated method stub
+
+					}
+				}).show();
+	}
+}
 }
