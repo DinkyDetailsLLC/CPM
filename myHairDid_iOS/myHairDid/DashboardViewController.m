@@ -62,7 +62,7 @@ extern NSString *nameStr;
     self.navigationItem.rightBarButtonItem=addButtonObject;
     self.navigationItem.rightBarButtonItem.tintColor=[UIColor blackColor];
     
-    query=[PFQuery queryWithClassName:@"AdditionalInfoDB"];
+    query=[PFQuery queryWithClassName:@"ClientDetail"];
     [query whereKey:@"Admin" equalTo:nameStr];
     
     [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error)
@@ -198,7 +198,7 @@ extern NSString *nameStr;
         {
             alerStr=@"0";
             
-            query = [PFQuery queryWithClassName:@"AdditionalInfoDB"];
+            query = [PFQuery queryWithClassName:@"ClientDetail"];
             [query whereKey:@"name" equalTo:[dataArray1 objectAtIndex:selectedInd]];
             
             [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error)

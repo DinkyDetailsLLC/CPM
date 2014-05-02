@@ -4,7 +4,7 @@
 //
 //  Created by DANIEL ANNIS on 4/29/14.
 //  Copyright (c) 2014 Dinky_Details. All rights reserved.
-//
+
 extern NSString *nameStr;
 extern NSString *objectIdStr;
 extern NSString *nameStr;
@@ -44,7 +44,7 @@ extern NSString *nameStr;
     self.title=@"Add Client";
     self.view.backgroundColor=[UIColor colorWithPatternImage:[UIImage imageNamed:@"background@2x"]];   // Setting the background image
     
-    PFQuery *query=[PFQuery queryWithClassName:@"AdditionalInfoDB"];
+    PFQuery *query=[PFQuery queryWithClassName:@"ClientDetail"];
     [query whereKey:@"Admin" equalTo:nameStr];
     
     [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error)
@@ -54,7 +54,7 @@ extern NSString *nameStr;
          if (!error)
              
          {
-             
+             // NSLog(@"DATA : %@",objects);
              
          }
      }];
@@ -72,7 +72,24 @@ extern NSString *nameStr;
     image.tag=1;
     
 }
-
+//-(BOOL) textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string
+//{
+//    if(self.phoneTxtFld.text.length >= 10 && range.length == 0)
+//    {
+//        return NO;
+//    }
+//
+//    else if (self.nameTxtFld.text.length>=10 &&range.length==0) {
+//        return NO;
+//    }
+//  else  if (self.ZipTxtFld.text.length>=6 && range.length==0) {
+//        return NO;
+//    }
+//
+//
+//    return YES;
+//
+//}
 -(void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex
 {
     if (actionSheet.tag ==1)
@@ -124,6 +141,40 @@ extern NSString *nameStr;
     filtered = [[inputString componentsSeparatedByCharactersInSet:charcter] componentsJoinedByString:@""];
     return [inputString isEqualToString:filtered];
 }
+//- (BOOL)textFieldShouldEndEditing:(UITextField *)textField
+//{
+//
+//
+//    NSString *emailRegEx = @"[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,4}";
+//    NSPredicate *emailTest = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", emailRegEx];
+//
+//    //Validate email address.
+//    if (![emailTest evaluateWithObject:self.emailTxtFld.text] == YES)
+//    {
+//        UIAlertView *EmailAlert=[[UIAlertView alloc]initWithTitle:@"" message:@"Invalid Email Address" delegate:self cancelButtonTitle:@"OK" otherButtonTitles: nil];
+//        [EmailAlert show];
+//        [self.emailTxtFld becomeFirstResponder];
+//    }
+//
+//
+//
+//
+//    if (![self isNumeric:self.phoneTxtFld.text] )
+//            { //mobileNumber Check
+//                UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"Error" message:@"Invalid Phone Number. " delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil];
+//                [alert show];
+//                [self.phoneTxtFld becomeFirstResponder];
+//            }
+//
+//        if (![self isNumeric:self.ZipTxtFld.text]) {
+//            UIAlertView *ZipAlert = [[UIAlertView alloc]initWithTitle:@"Error" message:@"Invalid Zip. " delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil];
+//            [ZipAlert show];
+//            [self.ZipTxtFld becomeFirstResponder];
+//
+//    }
+//
+//    return YES;
+//}
 - (IBAction)addInfoBtn:(id)sender
 {
     
@@ -173,50 +224,58 @@ extern NSString *nameStr;
                     HUD=[MBProgressHUD showHUDAddedTo:self.view animated:YES];   // Adding the MBPRogressHUD on LoginButton
                     HUD.labelText=@"Please Wait";
                     
-                    //   NSData *imageData = UIImageJPEGRepresentation(self.userImage.image, 0.8);
+                    PFQuery *query=[PFQuery queryWithClassName:@"ClientDetail"];
+                    [query whereKey:@"Admin" equalTo:nameStr];
                     
-                    //PFFile *file = [PFFile fileWithName:@"chosenImage.jpg" data:imageData];
-                    
-                    PFObject *MoreInfoObject=[PFObject objectWithClassName:@"AdditionalInfoDB"];
-                    // [MoreInfoObject setObject:file forKey:@"image"];
-                    
-                    MoreInfoObject[@"name"] = self.nameTxtFld.text;
-                    MoreInfoObject[@"address"]=self.addressTxtFld.text;
-                    MoreInfoObject[@"city"]=self.cityTxtFld.text;
-                    MoreInfoObject[@"phone"]=self.phoneTxtFld.text;
-                    MoreInfoObject[@"state"]=self.stateTxtFld.text;
-                    MoreInfoObject [@"zip"]=self.ZipTxtFld.text;
-                    MoreInfoObject[@"email"]=self.emailTxtFld.text;
-                    MoreInfoObject[@"UniqueIdForUser"]=objectIdStr;
-                    MoreInfoObject[@"Admin"]=nameStr;
-                    if (![Utilities CheckInternetConnection])
-                    {
-                        [MoreInfoObject saveEventually];
-                        UIAlertView *CheckInternetConnection=[[UIAlertView alloc]initWithTitle:@"" message:@"No Internet Connection Available. Your data will be saved after you connect to the internet." delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
-                        [CheckInternetConnection show];
-                        CheckInternetConnection=nil;
-                    }
-                    else
-                        
-                    {
-                        [MoreInfoObject saveInBackground];
-                        
-                        
-                        
-                        SignUpDoneAlert=[[UIAlertView alloc]initWithTitle:@"" message:@"Your Information Has Been Added." delegate:self cancelButtonTitle:@"OK" otherButtonTitles: nil];
-                        [SignUpDoneAlert show];
-                        SignUpDoneAlert.tag=1;
-                    }
-                    HUD.hidden=YES;
-                    self.nameTxtFld.text=@"";
-                    self.addressTxtFld.text=@"";
-                    self.cityTxtFld.text=@"";
-                    self.phoneTxtFld.text=@"";
-                    self.userImage.image=Nil;
-                    self.emailTxtFld.text=@"";
-                    self.ZipTxtFld.text=@"";
-                    self.stateTxtFld.text=@"";
-                    
+                    [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error)
+                     
+                     {
+                         NSData *imageData = UIImageJPEGRepresentation(self.userImage.image, 0.8);
+                         
+                         // PFFile *file = [PFFile fileWithName:@"chosenImage.jpg" data:imageData];
+                         
+                         PFObject *MoreInfoObject=[PFObject objectWithClassName:@"ClientDetail"];
+                         //  [MoreInfoObject setObject:file forKey:@"image"];
+                         
+                         MoreInfoObject[@"name"] = self.nameTxtFld.text;
+                         MoreInfoObject[@"address"]=self.addressTxtFld.text;
+                         MoreInfoObject[@"city"]=self.cityTxtFld.text;
+                         MoreInfoObject[@"phone"]=self.phoneTxtFld.text;
+                         MoreInfoObject[@"state"]=self.stateTxtFld.text;
+                         MoreInfoObject [@"zip"]=self.ZipTxtFld.text;
+                         MoreInfoObject[@"email"]=self.emailTxtFld.text;
+                         MoreInfoObject[@"fromUser"] = nameStr;
+                         //   MoreInfoObject[@"UniqueIdForUser"]=objectIdStr;
+                         MoreInfoObject[@"Admin"]=nameStr;
+                         if ([[objects valueForKey:@"name"] containsObject:self.nameTxtFld.text])
+                         {
+                             
+                             UIAlertView *CheckAlertForClients=[[UIAlertView alloc]initWithTitle:@"" message:@"This Name Already Exists. Please Enter A Different Name." delegate:self cancelButtonTitle:@"OK" otherButtonTitles: nil];
+                             [CheckAlertForClients show];
+                             CheckAlertForClients.tag=1;
+                             HUD.hidden=YES;
+                             [self.nameTxtFld becomeFirstResponder];
+                         }
+                         else
+                         {
+                             
+                             [MoreInfoObject saveInBackground];
+                             HUD.hidden=YES;
+                             
+                             SignUpDoneAlert=[[UIAlertView alloc]initWithTitle:@"" message:@"Your Information Has Been Added." delegate:self cancelButtonTitle:@"OK" otherButtonTitles: nil];
+                             [SignUpDoneAlert show];
+                             SignUpDoneAlert.tag=1;
+                             
+                             self.nameTxtFld.text=@"";
+                             self.addressTxtFld.text=@"";
+                             self.cityTxtFld.text=@"";
+                             self.phoneTxtFld.text=@"";
+                             self.userImage.image=Nil;
+                             self.emailTxtFld.text=@"";
+                             self.ZipTxtFld.text=@"";
+                             self.stateTxtFld.text=@"";
+                         }
+                     }];
                 }
         }
     }
@@ -228,11 +287,46 @@ extern NSString *nameStr;
     [textField resignFirstResponder];
     return YES;
 }
-- (IBAction)hideKeyboard:(id)sender
-{
-    NSLog(@"hideKeyboard");
-    [sender resignFirstResponder];
-}
+//- (IBAction)hideKeyboard:(id)sender
+//{
+//    NSLog(@"hideKeyboard");
+//    [sender resignFirstResponder];
+//}
+//-(void)textFieldDidBeginEditing:(UITextField *)textField
+//{
+//    NSLog(@"textViewDidBeginEditing");
+//
+//    if (textField.frame.origin.y + textField.frame.size.height > 480 - 216) {
+//        double offset = 480 - 216 - textField.frame.origin.y - textField.frame.size.height - 20;
+//        CGRect rect = CGRectMake(0, offset, self.view.frame.size.width, self.view.frame.size.height);
+//
+//        [UIView beginAnimations:nil context:NULL];
+//        [UIView setAnimationDuration:0.3];
+//
+//        self.view.frame = rect;
+//
+//        [UIView commitAnimations];
+//    }
+//
+//
+//}
+//
+//-(void)textFieldDidEndEditing:(UITextField *)textField
+//{
+//
+//    NSLog(@"textViewDidEndEditing");
+//
+//    CGRect rect = CGRectMake(0, 20, self.view.frame.size.width, self.view.frame.size.height);
+//
+//    [UIView beginAnimations:nil context:NULL];
+//    [UIView setAnimationDuration:0.3];
+//
+//    self.view.frame = rect;
+//
+//    [UIView commitAnimations];
+//
+//}
+//
 //////////////////// Clicking the Button on AlertBox///////////////////////
 
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{

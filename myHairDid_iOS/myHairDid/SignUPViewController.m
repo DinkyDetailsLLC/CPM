@@ -53,7 +53,6 @@
 }
 - (IBAction)registerBtn:(id)sender
 {
-    
     /////////// Empty TextField Validation ///////////////
     
     if ([self.nameSignUp.text isEqual:@""] || [self.passwordSignUp.text isEqual:@""]  || [self.emailSignUp.text isEqual:@""] )
@@ -94,41 +93,87 @@
             
             else
             {
-                
-                self.nameSignUp.text =[self.nameSignUp.text stringByTrimmingCharactersInSet: [NSCharacterSet whitespaceCharacterSet]];
-                self.passwordSignUp.text=[self.passwordSignUp.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
-                self.emailSignUp.text=[self.emailSignUp.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
-                
-                testObject = [PFObject objectWithClassName:@"ParseAppDB"];   // Saving the data to the database with ClassName
-                testObject[@"name"] = self.nameSignUp.text;
-                testObject[@"password"]=self.passwordSignUp.text;
-                testObject[@"email"]=self.emailSignUp.text;
                 if (![Utilities CheckInternetConnection])
                 {
                     
-                    [testObject saveEventually];
-                    UIAlertView *CheckInternetConnection=[[UIAlertView alloc]initWithTitle:@"" message:@"No Internet Connection Available. Your data will be saved after you connect to the internet." delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
-                    [CheckInternetConnection show];
-                    CheckInternetConnection=nil;
-                    
                 }
-                
                 else
                 {
-                    [testObject saveInBackground];
+                    HUD=[MBProgressHUD showHUDAddedTo:self.view animated:YES];   // Adding the MBPRogressHUD on LoginButton
+                    HUD.labelText=@"Creating New Account";
+                    
+                    //        PFQuery *query=[PFQuery queryWithClassName:@"ParseAppDB"];   // Fetching the data from the database
+                    //        [query whereKey:@"name" equalTo:self.nameSignUp.text];
+                    //        [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error)
+                    //
+                    //         {
+                    //             if (!error)
+                    //
+                    //             {
+                    //
+                    //                 if (objects.count!=0)      // If Username already exists
+                    //                 {
+                    //                     alertString =@"Username Already Exists. Try with a different Username.";
+                    //                     alertTag =2;
+                    //                     [Utilities alertViewMethod:alertString :alertTag];
+                    //                     HUD.hidden=YES;
+                    //                     [self.nameSignUp becomeFirstResponder];
+                    //                 }
+                    //
+                    //                 else
+                    //                 {
+                    //
+                    self.nameSignUp.text =[self.nameSignUp.text stringByTrimmingCharactersInSet: [NSCharacterSet whitespaceCharacterSet]];
+                    self.passwordSignUp.text=[self.passwordSignUp.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
+                    self.emailSignUp.text=[self.emailSignUp.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
+                    
+                    
+                    PFUser *myUser=[PFUser user];
+                    myUser.username=self.nameSignUp.text;
+                    myUser.password=self.passwordSignUp.text;
+                    myUser.email=self.emailSignUp.text;
+                    [myUser signUpInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+                        if (!error)
+                        {
+                            UIAlertView *loginALert=[[UIAlertView alloc]initWithTitle:@"" message:@"Your New Account Has Been Registered." delegate:self cancelButtonTitle:@"OK" otherButtonTitles: nil];
+                            [loginALert show];
+                            loginALert.tag =1;
+                            self.nameSignUp.text=@"";
+                            self.passwordSignUp.text=@"";
+                            self.emailSignUp.text=@"";
+                            
+                            // Hooray! Let them use the app now.
+                        }
+                        else {
+                            NSString *errorString = [error userInfo][@"error"];
+                            NSLog(@"%@",errorString);
+                            HUD.hidden=YES;
+                            
+                            // Show the errorString somewhere and let the user try again.
+                        }
+                    }];
+                    
+                    
+                    //                     testObject = [PFObject objectWithClassName:@"ParseAppDB"];   // Saving the data to the database with ClassName
+                    //                     testObject[@"name"] = self.nameSignUp.text;
+                    //                     testObject[@"password"]=self.passwordSignUp.text;
+                    //                     testObject[@"email"]=self.emailSignUp.text;
+                    //                     [testObject saveInBackground];
+                    
                     
                     /////////////// Alert to show Successfull Registeration /////////////////
                     
-                    UIAlertView *loginALert=[[UIAlertView alloc]initWithTitle:@"" message:@"Your New Account Has Been Registered." delegate:self cancelButtonTitle:@"OK" otherButtonTitles: nil];
-                    [loginALert show];
-                    loginALert.tag =1;
-                    HUD.hidden=YES;
+                    //                     UIAlertView *loginALert=[[UIAlertView alloc]initWithTitle:@"" message:@"Your New Account Has Been Registered." delegate:self cancelButtonTitle:@"OK" otherButtonTitles: nil];
+                    //                     [loginALert show];
+                    //                     loginALert.tag =1;
+                    //                     HUD.hidden=YES;
                     
                 }
             }
+            
+            //}];
         }
-    
-    //  }];
+    //}}
 }
 
 

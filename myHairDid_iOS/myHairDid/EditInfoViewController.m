@@ -43,7 +43,7 @@ extern NSString *selectedUser;
     HUD.labelText=@"Please Wait";
     self.view.backgroundColor=[UIColor colorWithPatternImage:[UIImage imageNamed:@"background@2x"]];   // Setting the background image
     
-    PFQuery *query=[PFQuery queryWithClassName:@"AdditionalInfoDB"];
+    PFQuery *query=[PFQuery queryWithClassName:@"ClientDetail"];
     [query whereKey:@"name" equalTo:selectedUser];
     [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error)
      {
@@ -76,6 +76,23 @@ extern NSString *selectedUser;
          }
      }];
 }
+//-(BOOL) textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string
+//{
+//    if(self.phoneTxt.text.length >= 10 && range.length == 0)
+//    {
+//        return NO;
+//
+//
+//    }
+//    if (self.nameTxt.text.length>=10 &&range.length==0) {
+//        return NO;
+//    }
+//    if (self.zipTxt.text.length>=6 && range.length==0) {
+//        return NO;
+//    }
+//    return YES;
+//
+//}
 
 - (BOOL)textFieldShouldEndEditing:(UITextField *)textField
 {
@@ -134,6 +151,33 @@ extern NSString *selectedUser;
     
     [sender resignFirstResponder];
 }
+//-(void)textFieldDidBeginEditing:(UITextField *)textField
+//{
+//    if (textField.frame.origin.y + textField.frame.size.height > 480 - 216) {
+//        double offset = 480 - 216 - textField.frame.origin.y - textField.frame.size.height - 20;
+//        CGRect rect = CGRectMake(0, offset, self.view.frame.size.width, self.view.frame.size.height);
+//
+//        [UIView beginAnimations:nil context:NULL];
+//        [UIView setAnimationDuration:0.3];
+//
+//        self.view.frame = rect;
+//
+//        [UIView commitAnimations];
+//    }
+//
+//}
+//-(void)textFieldDidEndEditing:(UITextField *)textField
+//{
+//
+//    CGRect rect = CGRectMake(0, 20, self.view.frame.size.width, self.view.frame.size.height);
+//
+//    [UIView beginAnimations:nil context:NULL];
+//    [UIView setAnimationDuration:0.3];
+//
+//    self.view.frame = rect;
+//
+//    [UIView commitAnimations];
+//}
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
@@ -192,7 +236,7 @@ extern NSString *selectedUser;
 
 - (IBAction)editInfoBtn:(id)sender
 {
-    PFQuery *query = [PFQuery queryWithClassName:@"AdditionalInfoDB"];
+    PFQuery *query = [PFQuery queryWithClassName:@"ClientDetail"];
     [query getObjectInBackgroundWithId:ObjID block:^(PFObject *myInfo, NSError *error) {
         
         

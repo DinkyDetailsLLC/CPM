@@ -24,6 +24,7 @@ import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.Dialog;
 import android.app.ProgressDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -31,6 +32,7 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.view.Window;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
@@ -64,6 +66,7 @@ public class EditClientInfo extends Activity {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
+		requestWindowFeature(Window.FEATURE_NO_TITLE);
 		setContentView(R.layout.edit_client_info);
 
 		et_name = (EditText) findViewById(R.id.add_client_et_name);
@@ -198,15 +201,17 @@ public class EditClientInfo extends Activity {
 		startActivityForResult(intent, CAMERA_CAPTURE_IMAGE_REQUEST_CODE);
 	}
 
-	//Creating file uri to store image/video
-	 
+	/*
+	 * Creating file uri to store image/video
+	 */
 	public Uri getOutputMediaFileUri(int type) {
 		return Uri.fromFile(getOutputMediaFile(type));
 	}
 
-	
-	 // Here we store the file url as it will be null after returning from cam app
-	 
+	/*
+	 * Here we store the file url as it will be null after returning from camera
+	 * app
+	 */
 	@Override
 	protected void onSaveInstanceState(Bundle outState) {
 		super.onSaveInstanceState(outState);
@@ -224,8 +229,9 @@ public class EditClientInfo extends Activity {
 		mImageUri = savedInstanceState.getParcelable("file_uri");
 	}
 
-	//returning image / video
-	 
+	/*
+	 * returning image / video
+	 */
 	private static File getOutputMediaFile(int type) {
 
 		// External sdcard location
@@ -258,7 +264,17 @@ public class EditClientInfo extends Activity {
 	}
 
 	@Override
-
+	/**
+	 * This method is called when feather has completed ( ie. user clicked on "done" or just exit the activity without saving ). <br />
+	 * If user clicked the "done" button you'll receive RESULT_OK as resultCode, RESULT_CANCELED otherwise.
+	 * 
+	 * @param requestCode
+	 * 	- it is the code passed with startActivityForResult
+	 * @param resultCode
+	 * 	- result code of the activity launched ( it can be RESULT_OK or RESULT_CANCELED )
+	 * @param data
+	 * 	- the result data
+	 */
 	public void onActivityResult(int requestCode, int resultCode, Intent data) {
 		if (resultCode == RESULT_OK) {
 			switch (requestCode) {
@@ -294,13 +310,24 @@ public class EditClientInfo extends Activity {
 		}
 	}
 
-	// Display image from a path to ImageView
-	 
+	/*
+	 * Display image from a path to ImageView
+	 */
 	private void previewCapturedImage() {
 		try {
 			// bimatp factory
 			mFlgChangePic = true;
-			
+			// BitmapFactory.Options options = new BitmapFactory.Options();
+			//
+			// // downsizing image as it throws OutOfMemory Exception for larger
+			// // images
+			// options.inSampleSize = 8;
+			//
+			// final Bitmap bitmap =
+			// BitmapFactory.decodeFile(mImageUri.getPath(),
+			// options);
+			//
+			// mBitmapPic = bitmap;
 			try {
 				mBitmapPic = MediaStore.Images.Media.getBitmap(
 						this.getContentResolver(), mImageUri);
@@ -341,7 +368,10 @@ public class EditClientInfo extends Activity {
 		query.getInBackground(object_id, new GetCallback<ParseObject>() {
 			public void done(ParseObject newStatus, ParseException e) {
 				if (e == null) {
-					
+					// Now let's update it with some new data. In this case,
+					// only cheatMode and score
+					// will get sent to the Parse Cloud. playerName hasn't
+					// changed.
 					newStatus.put("name", client_name);
 					newStatus.put("type", "status");
 
@@ -368,7 +398,8 @@ public class EditClientInfo extends Activity {
 
 						}
 					}
-					newStatus.saveEventually(new SaveCallback() {
+					newStatus.saveEventually();
+					newStatus.saveInBackground(new SaveCallback() {
 
 						@Override
 						public void done(ParseException e) {
@@ -388,11 +419,20 @@ public class EditClientInfo extends Activity {
 										EditClientInfo.this);
 								builder.setTitle("Error");
 								builder.setMessage("Data will be updated when u will be connected to internet on server");
-								builder.setPositiveButton("OK", null);
+								builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+									
+									@Override
+									public void onClick(DialogInterface dialog, int which) {
+										// TODO Auto-generated method stub
+										dialog.dismiss();
+										finish();
+									}
+								});
 								builder.show();
 							}
 
-							
+							// overridePendingTransition(R.anim.mainfadein,
+							// R.anim.splashfadeout);ss
 						}
 					});
 				}

@@ -18,8 +18,8 @@ import android.widget.AdapterView.OnItemLongClickListener;
 import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
-import utils.BudsCustomAdapter;
 
+import utils.BudsCustomAdapter;
 
 import com.parse.DeleteCallback;
 import com.parse.ParseUser;
@@ -89,6 +89,7 @@ public class ClientList extends Activity implements View.OnClickListener {
 		objectId_str = new ArrayList<String>();
 
 		getStories();
+
 		// Locate Button in ClientList.xml
 		TextView signout = (TextView) findViewById(R.id.signOut);
 		signout.setOnClickListener(this);
@@ -174,9 +175,10 @@ public class ClientList extends Activity implements View.OnClickListener {
 			break;
 		case R.id.signOut:
 			ParseUser.logOut();
-			Intent intent2 = new Intent(this, Login.class);
+			Intent intent2 = new Intent(ClientList.this, Login.class);
+		//	intent2.putExtra("mode", "newAdd");
 			startActivity(intent2);
-			finish();
+			//finish();
 			break;
 		}
 	}
@@ -187,8 +189,8 @@ public class ClientList extends Activity implements View.OnClickListener {
 		mprogressDialog.show();
 
 		ParseQuery<ParseObject> query = ParseQuery.getQuery("ClientDetail");
-		query.whereEqualTo("fromUser", ParseUser.getCurrentUser().getUsername());
-		query.whereEqualTo("type", "status");
+		query.whereEqualTo("Admin", ParseUser.getCurrentUser().getUsername());
+//		query.whereEqualTo("type", "status");
 
 		query.findInBackground(new FindCallback<ParseObject>() {
 			@Override
@@ -290,7 +292,7 @@ public class ClientList extends Activity implements View.OnClickListener {
 				.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP));
 		finish();
 	}
-	
+
 	void showAlert(String message) {
 		new AlertDialog.Builder(ClientList.this).setTitle("Error")
 				.setMessage(message)
@@ -304,4 +306,4 @@ public class ClientList extends Activity implements View.OnClickListener {
 				}).show();
 	}
 }
-}
+

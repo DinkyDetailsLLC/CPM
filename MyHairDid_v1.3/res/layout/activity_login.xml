@@ -82,5 +82,5 @@
         android:text="Hello,Let&apos;s log in or Sign up!"
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:textColor="@android:color/white" />
-
+    
 </RelativeLayout>

@@ -5,9 +5,9 @@
 //  Created by DANIEL ANNIS on 4/29/14.
 //  Copyright (c) 2014 Dinky_Details. All rights reserved.
 //
-
 NSString *nameStr;
 NSString *objectIdStr;
+
 #import "ViewController.h"
 #import <Parse/Parse.h>
 #import "SignUPViewController.h"
@@ -22,6 +22,7 @@ NSString *objectIdStr;
     NSString *alertString;
     NSInteger alertTag;
 }
+
 @end
 
 @implementation ViewController
@@ -40,7 +41,7 @@ NSString *objectIdStr;
 
 -(void)viewWillAppear:(BOOL)animated
 {
-    
+    HUD.hidden=YES;
     NSUserDefaults *prefs = [NSUserDefaults standardUserDefaults];
     
     // getting an NSString
@@ -65,8 +66,6 @@ NSString *objectIdStr;
     // Do any additional setup after loading the view from its nib.
     
     self.view.backgroundColor=[UIColor colorWithPatternImage:[UIImage imageNamed:@"background@2x"]];   // Setting the background image
-    
-    
     
     self.title=@"Login";
     
@@ -116,7 +115,7 @@ NSString *objectIdStr;
 #pragma mark   Buttons
 
 
-//////////////////// Navigates the User to signUp Screen /////////////////////////////
+///////////////////////////////////////// Navigates the User to signUp Screen /////////////////////////////
 
 - (IBAction)signUpBTn:(id)sender
 {
@@ -131,17 +130,13 @@ NSString *objectIdStr;
 {
     if (![Utilities CheckInternetConnection])
     {
-        UIAlertView *CheckInternetConnection=[[UIAlertView alloc]initWithTitle:@"" message:@"No Internet Connection Available. Please Check Your Internet Settings." delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
-        [CheckInternetConnection show];
-        CheckInternetConnection=nil;
         
     }
     
-    else{
+    else
+    {
         [self.nameTxtFld resignFirstResponder];
         [self.passwordTxtFLd resignFirstResponder];
-      
-        
         ////////////////////// Empty Text Field Validation //////////////////////
         
         if ([self.nameTxtFld.text isEqualToString:@""] || [self.passwordTxtFLd.text isEqualToString:@""] )
@@ -155,68 +150,83 @@ NSString *objectIdStr;
             
             
             /////////////// remove the white blank space before the name/////////
-          
             self.nameTxtFld.text  = [ self.nameTxtFld.text stringByTrimmingCharactersInSet: [NSCharacterSet whitespaceCharacterSet]];
             self.passwordTxtFLd.text=[self.passwordTxtFLd.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
             
             nameStr= self.nameTxtFld.text;
             
-            HUD=[MBProgressHUD showHUDAddedTo:self.view animated:YES];
-            
-            // Adding the MBPRogressHUD on LoginButton
+            HUD=[MBProgressHUD showHUDAddedTo:self.view animated:YES];   // Adding the MBPRogressHUD on LoginButton
             HUD.labelText=@"Logging In";
             
             
-            PFQuery *query=[PFQuery queryWithClassName:@"ParseAppDB"];
-            
-            // Fetching the Data to the Database with ClassName
-            [query whereKey:@"name" equalTo:self.nameTxtFld.text];
-            [query whereKey:@"password" equalTo:self.passwordTxtFLd.text];
-            
-            
-            [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error)
-             
+            [PFUser logInWithUsernameInBackground:self.nameTxtFld.text password:self.passwordTxtFLd.text block:^(PFUser *user, NSError *error)
              {
-                 objectIdStr= [objects valueForKey:@"objectId"];
-                 
-                 
-                 if (!error)
+                 if (user) {
+                     DashboardViewController *dash=[[DashboardViewController alloc]initWithNibName:@"DashboardViewController" bundle:nil];
+                     [self.navigationController pushViewController:dash animated:YES];
                      
-                 {
-                     HUD.hidden=YES;
-                     dataArray=objects;
-                     if (objects.count==0)   // If data entered is incorrect then alert
-                     {
-                         {
-                             alertString =@"Invalid Username or Password";
-                             alertTag =0;
-                             [Utilities alertViewMethod:alertString :alertTag];
-                             
-                             self.nameTxtFld.text=@"";
-                             self.passwordTxtFLd.text=@"";
-                             
-                         }
-                         
-                     }
-                     else   // If data entered is correct then navigates to next screen
-                         
-                     {
-                         if (self.checkButton.hidden==NO)
-                         {
-                             [self saveDetails];
-                         }
-                         
-                         DashboardViewController *dash=[[DashboardViewController alloc]initWithNibName:@"DashboardViewController" bundle:nil];
-                         [self.navigationController pushViewController:dash animated:YES];
-                     }
                  }
                  else
                  {
                      NSString *errorString = [[error userInfo] objectForKey:@"error"];
                      NSLog(@"Error: %@", errorString);
+                     HUD.hidden=YES;
+                     
                  }
-                 
              }];
+            
+            //        PFQuery *query=[PFQuery queryWithClassName:@"ParseAppDB"];   // Fetching the Data to the Database with ClassName
+            //        [query whereKey:@"name" equalTo:self.nameTxtFld.text];
+            //        [query whereKey:@"password" equalTo:self.passwordTxtFLd.text];
+            //
+            //
+            //        [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error)
+            //
+            //        {
+            //            objectIdStr= [objects valueForKey:@"objectId"];
+            //
+            //
+            //             if (!error)
+            //
+            //             {
+            //                 HUD.hidden=YES;
+            //                 dataArray=objects;
+            //                 if (objects.count==0)   // If data entered is incorrect then alert
+            //                 {
+            //                     {
+            //                         alertString =@"Invalid Username or Password";
+            //                         alertTag =0;
+            //                         [Utilities alertViewMethod:alertString :alertTag];
+            //
+            //                         self.nameTxtFld.text=@"";
+            //                        self.passwordTxtFLd.text=@"";
+            //
+            //                     }
+            //
+            //                 }
+            
+            
+            //                 else   // If data entered is correct then navigates to next screen
+            //
+            //                 {
+            //                     if (self.checkButton.hidden==NO)
+            //                     {
+            //                         [self saveDetails];
+            //                     }
+            //
+            //                     DashboardViewController *dash=[[DashboardViewController alloc]initWithNibName:@"DashboardViewController" bundle:nil];
+            //                     [self.navigationController pushViewController:dash animated:YES];
+            //                 }
+            //             }
+            //             else
+            //             {
+            //                 NSString *errorString = [[error userInfo] objectForKey:@"error"];
+            //                 NSLog(@"Error: %@", errorString);
+            //             }
+            //             
+            //         }];
+            //    }
+            //    }
         }
     }
 }

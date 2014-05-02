@@ -18,9 +18,11 @@ import com.parse.SaveCallback;
 
 import android.R.string;
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.app.Application;
 import android.app.Dialog;
 import android.app.ProgressDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -44,7 +46,7 @@ public class AddClientInfo extends Activity {
 	// Activity request codes
 	private static final int CAMERA_CAPTURE_IMAGE_REQUEST_CODE = 200;
 	public static final int MEDIA_TYPE_IMAGE = 1;
-	// Folder name on the sdcard where the images will be saved 
+	/** Folder name on the sdcard where the images will be saved **/
 	private static final String FOLDER_NAME = "TEST";
 
 	EditText et_name, et_address, et_city, et_state, et_zip, et_phone,
@@ -124,8 +126,9 @@ public class AddClientInfo extends Activity {
 				});
 	}
 
-	//Start the activity to pick an image from the user gallery
-	 
+	/**
+	 * Start the activity to pick an image from the user gallery
+	 */
 	private void pickFromGallery() {
 		Intent intent = new Intent(Intent.ACTION_GET_CONTENT);
 		intent.setType("image/*");
@@ -134,8 +137,9 @@ public class AddClientInfo extends Activity {
 		startActivityForResult(chooser, ACTION_REQUEST_GALLERY);
 	}
 
-	//Capturing Camera Image will lauch camera app requrest image capture
-	 
+	/*
+	 * Capturing Camera Image will lauch camera app requrest image capture
+	 */
 	private void captureImage() {
 		Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
 
@@ -147,15 +151,17 @@ public class AddClientInfo extends Activity {
 		startActivityForResult(intent, CAMERA_CAPTURE_IMAGE_REQUEST_CODE);
 	}
 
-	//Creating file uri to store image/video
-	 
+	/*
+	 * Creating file uri to store image/video
+	 */
 	public Uri getOutputMediaFileUri(int type) {
 		return Uri.fromFile(getOutputMediaFile(type));
 	}
 
-	
-	 //Here we store the file url as it will be null after returning from camera app
-	 
+	/*
+	 * Here we store the file url as it will be null after returning from camera
+	 * app
+	 */
 	@Override
 	protected void onSaveInstanceState(Bundle outState) {
 		super.onSaveInstanceState(outState);
@@ -173,8 +179,9 @@ public class AddClientInfo extends Activity {
 		mImageUri = savedInstanceState.getParcelable("file_uri");
 	}
 
-	// returning image / video
-	 
+	/*
+	 * returning image / video
+	 */
 	private static File getOutputMediaFile(int type) {
 
 		// External sdcard location
@@ -207,7 +214,17 @@ public class AddClientInfo extends Activity {
 	}
 
 	@Override
-
+	/**
+	 * This method is called when feather has completed ( ie. user clicked on "done" or just exit the activity without saving ). <br />
+	 * If user clicked the "done" button you'll receive RESULT_OK as resultCode, RESULT_CANCELED otherwise.
+	 * 
+	 * @param requestCode
+	 * 	- it is the code passed with startActivityForResult
+	 * @param resultCode
+	 * 	- result code of the activity launched ( it can be RESULT_OK or RESULT_CANCELED )
+	 * @param data
+	 * 	- the result data
+	 */
 	public void onActivityResult(int requestCode, int resultCode, Intent data) {
 		if (resultCode == RESULT_OK) {
 			switch (requestCode) {
@@ -245,8 +262,9 @@ public class AddClientInfo extends Activity {
 		}
 	}
 
-	//Display image from a path to ImageView
-	
+	/*
+	 * Display image from a path to ImageView
+	 */
 	private void previewCapturedImage() {
 		try {
 			// bimatp factory
@@ -282,7 +300,7 @@ public class AddClientInfo extends Activity {
 		client_zip = et_zip.getText().toString();
 
 		final ParseObject newStatus = new ParseObject("ClientDetail");
-		newStatus.put("fromUser", ParseUser.getCurrentUser().getUsername());
+		newStatus.put("Admin", ParseUser.getCurrentUser().getUsername());
 		newStatus.put("type", "status");
 
 		newStatus.put("name", client_name);
@@ -306,7 +324,7 @@ public class AddClientInfo extends Activity {
 
 			}
 		}
-
+		newStatus.saveEventually();
 		newStatus.saveInBackground(new SaveCallback() {
 
 			@Override
@@ -324,10 +342,27 @@ public class AddClientInfo extends Activity {
 					finish();
 				} else {
 					mProgressDlg.dismiss();
+					AlertDialog.Builder builder = new AlertDialog.Builder(
+							AddClientInfo.this);
+					builder.setTitle("Error");
+					builder.setMessage("Data will be updated when u will be connected to internet on server");
+					builder.setPositiveButton("OK",
+							new DialogInterface.OnClickListener() {
+
+								@Override
+								public void onClick(DialogInterface dialog,
+										int which) {
+									// TODO Auto-generated method stub
+									dialog.dismiss();
+									finish();
+								}
+							});
+					builder.show();
 				}
 
 				// overridePendingTransition(R.anim.mainfadein,
 				// R.anim.splashfadeout);ss
+				newStatus.saveInBackground();
 			}
 		});
 	}

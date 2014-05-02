@@ -50,6 +50,7 @@ public class Login extends Activity {
 			public void onClick(View arg0) {
 
 				if (!(API.isInternetOn(Login.this))) {
+
 					showAlert("Internet not avialble.");
 				} else {
 					progressdialog.setMessage("Please wait...");
@@ -109,6 +110,7 @@ public class Login extends Activity {
 		});
 
 	}
+
 	void showAlert(String message) {
 		new AlertDialog.Builder(Login.this).setTitle("Error")
 				.setMessage(message)
